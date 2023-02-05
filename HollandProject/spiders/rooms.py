@@ -57,7 +57,7 @@ class RoomsSpider(scrapy.Spider):
     start_urls = ["https://kamernet.nl/huren/kamers-nederland"]
     
     def start_requests(self):
-        with open("D:\\new\\Workspace\\Python\\project1\\HollandProject\\HollandProject\\urls.json", 'r') as f:
+        with open("urls.json", 'r') as f:
             rooms = json.load(f)
         for room in rooms:
             yield scrapy.Request(url=room['room_name'], callback=self.parse)
